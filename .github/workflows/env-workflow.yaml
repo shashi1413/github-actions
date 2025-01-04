@@ -16,3 +16,5 @@ jobs:
           MY_STEP_VARIABLE: STEP VARIABLE
         run: |
           echo '${{toJSON(github)}}'
+          echo '${{toJSON(env)}}'
+          echo '${{toJSON(vars)}}'
