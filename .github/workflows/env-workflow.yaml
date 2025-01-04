@@ -1,0 +1,19 @@
+name: Environment workflow
+on:
+  push:
+    branches:
+      - main
+env:
+  MY_WORKFLOW_VARIABLE: WORK FLOW VARIABLE
+jobs:
+  env_job:
+    runs-on: ubuntu-latest
+    env:
+      MY_JOB_ENV_VARIABLE: JOB ENV VARIABLE
+    steps:
+      - name: Print env variable
+        env:
+          MY_STEP_VARIABLE: STEP VARIABLE
+        run: |
+          echo $GITHUB_REF
+          echo '${{env.MY_JOB_ENV_VARIABLE}} - ${{env.MY_STEP_VARIABLE}} - ${{env.MY_WORKFLOW_VARIABLE}}'
