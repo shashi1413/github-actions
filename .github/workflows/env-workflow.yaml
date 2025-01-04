@@ -18,3 +18,4 @@ jobs:
           echo '${{toJSON(github)}}'
           echo '${{toJSON(env)}}'
           echo '${{toJSON(vars)}}'
+          echo "MY_NEW_ENV_VARIABLE=this is my variable">>$GITHUB_ENV
