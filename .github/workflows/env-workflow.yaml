@@ -15,5 +15,4 @@ jobs:
         env:
           MY_STEP_VARIABLE: STEP VARIABLE
         run: |
-          echo $GITHUB_REF
-          echo '${{env.MY_JOB_ENV_VARIABLE}} - ${{env.MY_STEP_VARIABLE}} - ${{env.MY_WORKFLOW_VARIABLE}}'
+          echo '${{toJSON(github)}}'
