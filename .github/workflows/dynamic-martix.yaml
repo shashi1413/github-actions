@@ -13,4 +13,4 @@ jobs:
       - name: prepare matrix
         run: |
           echo "${{inputs.os}}"
-          jq -v
+          jq --help
