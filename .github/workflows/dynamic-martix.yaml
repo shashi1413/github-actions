@@ -11,4 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: prepare matrix
-        run: echo "${{inputs.os}}"
+        run: |
+          echo "${{inputs.os}}"
+          jq -v
