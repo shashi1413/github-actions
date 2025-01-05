@@ -24,8 +24,11 @@ jobs:
     outputs:
       matrix-arrays: ${{steps.split_step.outputs.result}}
   use-matrix-input:
-    runs-on: ${{fromJson(needs.prepare-matrix.outputs.matrix-arrays).os}}
+    runs-on: ${{matrix.os}}
     needs: [prepare-matrix]
+    strategy:
+      matrix:
+        os: ${{fromJson(needs.prepare-matrix.outputs.matrix-arrays).os}}
     steps:
       - name: Print OS names
         run: echo '${{fromJson(needs.prepare-matrix.outputs.matrix-arrays)}}'
