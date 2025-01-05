@@ -17,7 +17,7 @@ jobs:
           script: return '${{inputs.os}}'.split(",")
       - name: prepare matrix
         run: |
-          echo 'OS_OPTIONS=${{steps.split_step.outputs.result}}'>> '$GITHUB_ENV'
+          echo 'OS_OPTIONS=${{steps.split_step.outputs.result}}' >> $GITHUB_ENV
       - name: printing env variables
         run: echo '${{toJson(env)}}'
   use-matrix-input:
