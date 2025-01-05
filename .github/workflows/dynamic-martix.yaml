@@ -20,9 +20,11 @@ jobs:
           echo 'OS_OPTIONS=${{steps.split_step.outputs.result}}' >> $GITHUB_ENV
       - name: printing env variables
         run: echo '${{toJson(env)}}'
+    outputs:
+      matrix-arrays: ${{steps.split_step.outputs.result}}
   use-matrix-input:
     runs-on: ubuntu-latest
     needs: [prepare-matrix]
     steps:
       - name: Print OS names
-        run: echo '${{env.OS_OPTIONS}}'
+        run: echo '${{needs.prepare-matrix.outputs.matrix-arrays}}'
