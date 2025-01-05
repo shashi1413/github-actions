@@ -1,5 +1,5 @@
 name: Dynamic matrix
-on: [push]
+on: [workflow_dispatch]
 jobs:
   prepare-matrix:
     runs-on: ubuntu-latest
