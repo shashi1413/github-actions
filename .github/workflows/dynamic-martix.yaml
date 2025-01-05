@@ -18,6 +18,8 @@ jobs:
       - name: prepare matrix
         run: |
           echo 'OS_OPTIONS=${{steps.split_step.outputs.result}}'>> '$GITHUB_ENV'
+      - name: printing env variables
+        run: echo '${{toJson(env)}}'
   use-matrix-input:
     runs-on: ubuntu-latest
     steps:
