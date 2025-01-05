@@ -17,4 +17,9 @@ jobs:
           script: return '${{inputs.os}}'.split()
       - name: prepare matrix
         run: |
-          echo '${{toJSON(steps)}}'
+          echo 'OS_OPTIONS=${{steps.split_step.outputs.result}}'>> '$GITHUB_ENV'
+  use-matrix-input:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print OS names
+        run: echo '${{env.OS_OPTIONS}}'
