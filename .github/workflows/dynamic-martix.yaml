@@ -1,8 +1,14 @@
 name: Dynamic matrix
-on: [workflow_dispatch]
+on:
+  workflow_dispatch:
+    inputs:
+      os:
+        description: dynamic matrix preparation
+        default: ubuntu-latest, windows-latest
+        type: string
 jobs:
   prepare-matrix:
     runs-on: ubuntu-latest
     steps:
       - name: prepare matrix
-        run: echo "Hello"
+        run: echo "${{inputs.os}}"
