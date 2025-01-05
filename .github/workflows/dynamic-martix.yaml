@@ -1,0 +1,8 @@
+name: Dynamic matrix
+on: [push]
+jobs:
+  prepare-matrix:
+    runs-on: ubuntu-latest
+    steps:
+      - name: prepare matrix
+        run: echo "Hello"
