@@ -23,7 +23,7 @@ jobs:
     outputs:
       matrix-arrays: ${{steps.split_step.outputs.result}}
   use-matrix-input:
-    runs-on: ubuntu-latest
+    runs-on: ${{fromJson(needs.prepare-matrix.outputs.matrix-arrays).os}}
     needs: [prepare-matrix]
     steps:
       - name: Print OS names
