@@ -27,4 +27,4 @@ jobs:
     needs: [prepare-matrix]
     steps:
       - name: Print OS names
-        run: echo '${{fromJson(needs.prepare-matrix.outputs.matrix-arrays).os}}'
+        run: echo '${{fromJson(needs.prepare-matrix.outputs.matrix-arrays)}}'
