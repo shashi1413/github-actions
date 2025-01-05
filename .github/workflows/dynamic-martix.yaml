@@ -14,7 +14,7 @@ jobs:
         id: split_step
         uses: actions/github-script@v7
         with:
-          script: return '${{inputs.os}}'.split(",")
+          script: return {os:'${{inputs.os}}'.split(",")}
       - name: prepare matrix
         run: |
           echo 'OS_OPTIONS=${{steps.split_step.outputs.result}}' >> $GITHUB_ENV
