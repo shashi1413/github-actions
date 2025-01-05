@@ -18,7 +18,7 @@ jobs:
           result-encoding: json
       - name: prepare matrix
         run: |
-          echo 'OS_OPTIONS=${{steps.split_step.outputs.result}}' >> $GITHUB_ENV
+          echo '${{steps.split_step.outputs.result}}'
       - name: printing env variables
         run: echo '${{toJson(env)}}'
     outputs:
