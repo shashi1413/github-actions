@@ -4,13 +4,17 @@ on:
     inputs:
       os:
         description: dynamic matrix preparation
-        default: ubuntu-latest, windows-latest
+        default: ubuntu-latest,windows-latest
         type: string
 jobs:
   prepare-matrix:
     runs-on: ubuntu-latest
     steps:
+      - name: Github script
+        id: split_step
+        uses: actions/github-script@v7
+        with:
+          script: return '${{inputs.os}}'.split()
       - name: prepare matrix
         run: |
-          echo "${{inputs.os}}"
-          jq --help
+          echo '${{toJSON(steps)}}'
